@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>쫄라맨 출동</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>쫄라맨 소환술</h1>
+    <button id="summon" type="button">쫄라맨 부르기</button>
+
+    <div class="stage">
+      <svg id="jjolla" viewBox="0 0 300 400" aria-label="쫄라맨 그림">
+        <circle class="stroke" cx="150" cy="80" r="40"/>
+        <path class="stroke" d="M133 72 v8"/>
+        <path class="stroke" d="M167 72 v8"/>
+        <path class="stroke" d="M132 96 Q150 112 168 94"/>
+        <path class="stroke" d="M150 120 V250"/>
+        <path class="stroke" d="M150 150 L92 205"/>
+        <path class="stroke" d="M150 150 L210 118"/>
+        <path class="stroke" d="M150 250 L108 345"/>
+        <path class="stroke" d="M150 250 L192 345"/>
+        <path class="stroke" d="M108 345 h-22"/>
+        <path class="stroke" d="M192 345 h22"/>
+      </svg>
+      <p id="bubble" class="bubble" aria-live="polite"></p>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
