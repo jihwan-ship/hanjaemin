@@ -3,51 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>쫄라맨 소환소 2.0</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <title>쫄라맨</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
-    <h1>쫄라맨 소환소<small>ver 2.0 약올림 에디션</small></h1>
-    <button id="summon" type="button">쫄라맨 소환!</button>
-
-    <div id="loader" class="loader" hidden>
-      <div class="bar"><i id="fill"></i></div>
-      <span><b id="pct">0%</b> <span id="loadText">쫄라맨 로딩중...</span></span>
-    </div>
+    <h1>쫄라맨</h1>
+    <button id="summon" type="button">소환</button>
 
     <div class="stage">
       <p id="bubble" class="bubble" aria-live="polite"></p>
       <svg id="jjolla" viewBox="0 0 300 400" aria-label="쫄라맨">
-        <ellipse id="shadow" cx="150" cy="362" rx="70" ry="9"/>
+        <ellipse id="shadow" cx="150" cy="368" rx="76" ry="8"/>
         <g id="squish">
           <g id="hero">
-            <circle id="headFill" cx="150" cy="82" r="46"/>
-            <path class="stroke" d="M150 128 C138 170 164 210 150 250"/>
-            <g id="armL"><path class="stroke" d="M150 158 Q112 172 88 208"/></g>
-            <g id="armR"><path class="stroke" d="M150 158 Q190 140 216 108"/></g>
-            <g id="legL"><path class="stroke" d="M150 250 Q128 300 104 345"/><path class="stroke" d="M104 345 h-26"/></g>
-            <g id="legR"><path class="stroke" d="M150 250 Q176 300 196 345"/><path class="stroke" d="M196 345 h26"/></g>
-            <circle class="stroke" cx="150" cy="82" r="46"/>
+            <path id="headFill" d="M150 44 C182 42 204 68 202 98 C200 130 172 150 148 148 C116 146 96 122 98 92 C100 64 122 46 150 44 Z"/>
+            <path class="stroke" d="M150 44 C182 42 204 68 202 98 C200 130 172 150 148 148 C116 146 96 122 98 92 C100 64 122 46 150 44 Z"/>
+            <path class="stroke" d="M150 148 C144 190 158 225 150 262"/>
+            <g id="armL"><path class="stroke" d="M150 172 Q112 190 96 232"/></g>
+            <g id="armR"><path class="stroke" d="M150 172 Q188 160 214 132"/></g>
+            <g id="legL"><path class="stroke" d="M150 262 Q134 305 110 350"/><path class="stroke" d="M110 350 h-24"/></g>
+            <g id="legR"><path class="stroke" d="M150 262 Q170 305 194 350"/><path class="stroke" d="M194 350 h24"/></g>
             <g id="face">
-              <circle class="cheek" cx="115" cy="98" r="9"/>
-              <circle class="cheek" cx="187" cy="100" r="9"/>
-              <circle class="eye" cx="132" cy="72" r="14"/>
-              <circle class="eye" cx="171" cy="76" r="17"/>
-              <circle class="pupil" cx="132" cy="72" r="6"/>
-              <circle class="pupil" cx="171" cy="76" r="7"/>
-              <path class="brow" d="M114 50 L146 60"/>
-              <path class="brow" d="M156 52 Q172 40 190 54"/>
-              <path class="mouth" d="M120 98 Q150 138 182 96 Z"/>
-              <path class="tongue" d="M144 110 Q156 160 170 108 Z"/>
+              <circle class="eye" cx="128" cy="90" r="13"/>
+              <circle class="eye" cx="172" cy="94" r="17"/>
+              <circle class="pupil" cx="128" cy="90" r="3.5"/>
+              <circle class="pupil" cx="172" cy="94" r="4"/>
+              <path class="brow" d="M108 68 L142 77"/>
+              <path class="brow" d="M160 79 L196 66"/>
+              <path class="mouth" d="M114 122 Q150 138 188 116"/>
+              <path class="teeth" d="M128 126 v9 M142 130 v9 M158 130 v9 M173 125 v9"/>
+              <path class="blood" d="M180 46 C186 66 174 76 180 100"/>
+              <circle class="blood-drop" cx="180" cy="108" r="4"/>
             </g>
           </g>
         </g>
       </svg>
     </div>
   </main>
+
+  <div id="scare" aria-hidden="true">
+    <canvas id="noise" width="160" height="90"></canvas>
+    <svg id="scareFace" viewBox="0 0 300 300">
+      <path d="M150 10 C230 6 290 60 288 150 C286 250 220 296 150 294 C76 296 12 246 12 150 C12 60 72 14 150 10 Z" fill="#e8e8e0" stroke="#000" stroke-width="8"/>
+      <circle cx="92" cy="112" r="50" fill="#fff" stroke="#000" stroke-width="6"/>
+      <circle cx="210" cy="118" r="62" fill="#fff" stroke="#000" stroke-width="6"/>
+      <circle cx="96" cy="114" r="6" fill="#000"/>
+      <circle cx="206" cy="120" r="7" fill="#000"/>
+      <path d="M40 60 L120 86 M180 50 Q220 30 270 62" stroke="#000" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <path d="M40 210 Q150 300 262 200 Q150 250 40 210 Z" fill="#000"/>
+      <path d="M56 212 L70 236 L84 222 L100 246 L116 230 L134 252 L150 234 L168 252 L186 232 L204 248 L220 226 L238 234 L252 208" fill="#e8e8e0" stroke="#000" stroke-width="3"/>
+      <path d="M210 40 C222 90 196 110 212 160 M120 4 C112 40 126 60 118 80" stroke="#b00000" stroke-width="10" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
