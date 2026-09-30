@@ -7,40 +7,58 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>쫄라맨</h1>
-    <button id="summon" type="button">소환</button>
+  <div id="game">
+    <section id="title" class="screen">
+      <h1>쫄라맨</h1>
+      <button id="btnStart" type="button">게임시작</button>
+      <button id="btnHow" type="button">게임방법</button>
+    </section>
 
-    <div class="stage">
+    <section id="howto" class="screen" hidden>
+      <h2 class="ot">게임방법</h2>
+      <p class="ht ot">쫄라맨을 소환해서 눌러보면 됩니다.</p>
+      <p class="ht ot g">총 4가지의 엔딩이 존재하며, 그중 히든엔딩이 1가지 있습니다.</p>
+      <p class="ht ot r">Tip : 무의식적으로 누르다 보면 엔딩을 볼 수도 있습니다.</p>
+      <p class="ht ot r">Tip : 가끔 소리가 납니다. 볼륨 주의.</p>
+      <button id="btnBack" type="button">뒤로</button>
+    </section>
+
+    <section id="stage" class="screen" hidden>
+      <div class="hud ot"><span>누른 횟수 <b id="cnt">0</b> &nbsp; 엔딩 <b id="endcnt">0</b>/4</span><button id="btnMenu" class="mini" type="button">메인으로</button></div>
       <p id="bubble" class="bubble" aria-live="polite"></p>
       <svg id="jjolla" viewBox="0 0 300 400" aria-label="쫄라맨">
-        <ellipse id="shadow" cx="150" cy="368" rx="76" ry="8"/>
+        <ellipse id="shadow" cx="150" cy="368" rx="84" ry="8"/>
         <g id="squish">
           <g id="hero">
-            <path id="headFill" d="M150 44 C182 42 204 68 202 98 C200 130 172 150 148 148 C116 146 96 122 98 92 C100 64 122 46 150 44 Z"/>
-            <path class="stroke" d="M150 44 C182 42 204 68 202 98 C200 130 172 150 148 148 C116 146 96 122 98 92 C100 64 122 46 150 44 Z"/>
-            <path class="stroke" d="M150 148 C144 190 158 225 150 262"/>
-            <g id="armL"><path class="stroke" d="M150 172 Q112 190 96 232"/></g>
-            <g id="armR"><path class="stroke" d="M150 172 Q188 160 214 132"/></g>
-            <g id="legL"><path class="stroke" d="M150 262 Q134 305 110 350"/><path class="stroke" d="M110 350 h-24"/></g>
-            <g id="legR"><path class="stroke" d="M150 262 Q170 305 194 350"/><path class="stroke" d="M194 350 h24"/></g>
+            <path id="bodyShade" transform="translate(-9 6)" d="M118 162 C114 210 106 254 104 290 L196 290 C194 254 186 210 182 162 Z"/>
+            <path id="bodyFill" d="M118 162 C114 210 106 254 104 290 L196 290 C194 254 186 210 182 162 Z"/>
+            <path class="stroke" d="M118 162 C114 210 106 254 104 290 L196 290 C194 254 186 210 182 162"/>
+            <g id="legL"><path class="stroke" d="M130 292 L120 352 h-28"/></g>
+            <g id="legR"><path class="stroke" d="M170 292 L180 352 h28"/></g>
+            <g id="armL"><path class="stroke" d="M112 190 Q78 210 66 252"/></g>
+            <g id="armR">
+              <path class="stroke" d="M188 190 Q224 182 238 148"/>
+              <path id="cupFill" d="M222 116 h36 l-5 32 h-26 z"/>
+              <path class="stroke" d="M222 116 h36 l-5 32 h-26 z"/>
+            </g>
+            <path id="headShade" transform="translate(-11 9)" d="M150 30 C205 28 236 66 234 106 C232 146 196 170 150 170 C104 170 66 146 66 104 C66 62 100 32 150 30 Z"/>
+            <path id="headFill" d="M150 30 C205 28 236 66 234 106 C232 146 196 170 150 170 C104 170 66 146 66 104 C66 62 100 32 150 30 Z"/>
+            <path class="stroke" d="M150 30 C205 28 236 66 234 106 C232 146 196 170 150 170 C104 170 66 146 66 104 C66 62 100 32 150 30 Z"/>
             <g id="face">
-              <circle class="eye" cx="128" cy="90" r="13"/>
-              <circle class="eye" cx="172" cy="94" r="17"/>
-              <circle class="pupil" cx="128" cy="90" r="3.5"/>
-              <circle class="pupil" cx="172" cy="94" r="4"/>
-              <path class="brow" d="M108 68 L142 77"/>
-              <path class="brow" d="M160 79 L196 66"/>
-              <path class="mouth" d="M114 122 Q150 138 188 116"/>
-              <path class="teeth" d="M128 126 v9 M142 130 v9 M158 130 v9 M173 125 v9"/>
-              <path class="blood" d="M180 46 C186 66 174 76 180 100"/>
-              <circle class="blood-drop" cx="180" cy="108" r="4"/>
+              <path class="lid" d="M96 108 L146 104"/>
+              <path class="lid" d="M174 104 L224 109"/>
             </g>
           </g>
         </g>
       </svg>
-    </div>
-  </main>
+    </section>
+
+    <section id="ending" class="screen" hidden>
+      <h2 id="endTitle"></h2>
+      <p id="endDesc"></p>
+      <button id="btnRetry" type="button">다시하기</button>
+    </section>
+  </div>
 
   <div id="scare" aria-hidden="true">
     <canvas id="noise" width="160" height="90"></canvas>
