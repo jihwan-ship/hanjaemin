@@ -3,31 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>쫄라맨 출동</title>
+  <title>쫄라맨 소환소 2.0</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
-    <h1>쫄라맨 소환술</h1>
-    <button id="summon" type="button">쫄라맨 부르기</button>
+    <h1>쫄라맨 소환소<small>ver 2.0 약올림 에디션</small></h1>
+    <button id="summon" type="button">쫄라맨 소환!</button>
+
+    <div id="loader" class="loader" hidden>
+      <div class="bar"><i id="fill"></i></div>
+      <span><b id="pct">0%</b> <span id="loadText">쫄라맨 로딩중...</span></span>
+    </div>
 
     <div class="stage">
-      <svg id="jjolla" viewBox="0 0 300 400" aria-label="쫄라맨 그림">
-        <circle class="stroke" cx="150" cy="80" r="40"/>
-        <path class="stroke" d="M133 72 v8"/>
-        <path class="stroke" d="M167 72 v8"/>
-        <path class="stroke" d="M132 96 Q150 112 168 94"/>
-        <path class="stroke" d="M150 120 V250"/>
-        <path class="stroke" d="M150 150 L92 205"/>
-        <path class="stroke" d="M150 150 L210 118"/>
-        <path class="stroke" d="M150 250 L108 345"/>
-        <path class="stroke" d="M150 250 L192 345"/>
-        <path class="stroke" d="M108 345 h-22"/>
-        <path class="stroke" d="M192 345 h22"/>
-      </svg>
       <p id="bubble" class="bubble" aria-live="polite"></p>
+      <svg id="jjolla" viewBox="0 0 300 400" aria-label="쫄라맨">
+        <ellipse id="shadow" cx="150" cy="362" rx="70" ry="9"/>
+        <g id="squish">
+          <g id="hero">
+            <circle id="headFill" cx="150" cy="82" r="46"/>
+            <path class="stroke" d="M150 128 C138 170 164 210 150 250"/>
+            <g id="armL"><path class="stroke" d="M150 158 Q112 172 88 208"/></g>
+            <g id="armR"><path class="stroke" d="M150 158 Q190 140 216 108"/></g>
+            <g id="legL"><path class="stroke" d="M150 250 Q128 300 104 345"/><path class="stroke" d="M104 345 h-26"/></g>
+            <g id="legR"><path class="stroke" d="M150 250 Q176 300 196 345"/><path class="stroke" d="M196 345 h26"/></g>
+            <circle class="stroke" cx="150" cy="82" r="46"/>
+            <g id="face">
+              <circle class="cheek" cx="115" cy="98" r="9"/>
+              <circle class="cheek" cx="187" cy="100" r="9"/>
+              <circle class="eye" cx="132" cy="72" r="14"/>
+              <circle class="eye" cx="171" cy="76" r="17"/>
+              <circle class="pupil" cx="132" cy="72" r="6"/>
+              <circle class="pupil" cx="171" cy="76" r="7"/>
+              <path class="brow" d="M114 50 L146 60"/>
+              <path class="brow" d="M156 52 Q172 40 190 54"/>
+              <path class="mouth" d="M120 98 Q150 138 182 96 Z"/>
+              <path class="tongue" d="M144 110 Q156 160 170 108 Z"/>
+            </g>
+          </g>
+        </g>
+      </svg>
     </div>
   </main>
   <script src="script.js"></script>
